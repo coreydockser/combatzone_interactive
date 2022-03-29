@@ -2,7 +2,6 @@ var map = L.map('map').setView([42.35154205203401, -71.0636876549353], 17.5);
 
 // Retina displays require different mat tiles quality
 var isRetina = L.Browser.retina;
-
       var baseUrl =
         'https://maps.geoapify.com/v1/tile/osm-bright-grey/{z}/{x}/{y}.png?apiKey={api_key}';
       var retinaUrl =
@@ -13,5 +12,7 @@ L.tileLayer(isRetina ? retinaUrl : baseUrl, {
   maxZoom: 20, id: 'osm-bright',
   api_key: 'e7246100546c4a81903d9947391f67bb'
 }).addTo(map);
+
+
 
 
