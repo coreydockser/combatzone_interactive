@@ -1,4 +1,4 @@
-var map = L.map('map').setView([42.35154205203401, -71.0636876549353], 17.5);
+var map = L.map('map').setView([42.35188396624604, -71.06275921933733], 17.5);
 
 // Retina displays require different mat tiles quality
 var isRetina = L.Browser.retina;
@@ -48,9 +48,10 @@ async function getGeoJ() {
   geoJ = getGeoJ();
   console.log(geoJ)
 
-L.geoJSON(geoJ, {
+var shp = new L.Shapefile("http://localhost:5500/combatzone_interactive/aed_shp.zip", {
     style: aedStyle
-}).addTo(map);
+})
+shp.addTo(map);
 
 
 
