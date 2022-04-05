@@ -22,26 +22,35 @@ function aedStyle() {
 }
 //var request = new Request("./aed.json");
 
-
+/*
 // function to fetch json data
 async function fetchJSON(url) {
     return fetch(url)
         .then(response => response)
         .then(data => { return data })
 }
+*/
 
-
-async function main() {
-    const geoJ = shp("./aed_shp.zip").then(function(geojson) {
-        console.log(geoJ)
-        return geojson
-    })
-    
-    L.geoJSON(geoJ, {
-        style: aedStyle
-    }).addTo(map);
+async function getShp() {
+    const geoJ = await shp("http://localhost:5500/combatzone_interactive/aed_shp.zip")
+    return geoJ;
 }
-main()
+
+
+//geoJ = getShp().then((resolved => console.log(resolved)))
+//console.log(geoJ)
+
+async function getGeoJ() {
+    const resolved = await getShp();
+    console.log(resolved)
+    return resolved;
+  }
+  geoJ = getGeoJ();
+  console.log(geoJ)
+
+L.geoJSON(geoJ, {
+    style: aedStyle
+}).addTo(map);
 
 
 
