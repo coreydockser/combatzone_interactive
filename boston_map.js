@@ -61,6 +61,12 @@ var twooclock = L.marker([42.3518885390469, -71.06267170677561]).addTo(map)
 washington_st
     .bindPopup("<b>Washington St.</b><br>19whatever");
 
+washington_st.on("click", function (event) {
+    var clickedMarker = event.layer;
+    replaceLeft(event, "photocombos/washingtonst.jpeg", "April 2022")
+    replaceRight(event, "photocombos/washington_st.jpg", "June 1977")
+})
+
 
 
 //const response = fetch(request);
