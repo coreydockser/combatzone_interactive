@@ -1,4 +1,4 @@
-var map = L.map('map').setView([42.35188396624604, -71.06275921933733], 17.5);
+var map = L.map('map').setView([42.35189896624604, -71.06275921933733], 17.5);
 
 // Retina displays require different mat tiles quality
 var isRetina = L.Browser.retina;
@@ -15,9 +15,10 @@ L.tileLayer(isRetina ? retinaUrl : baseUrl, {
 
 function aedStyle() {
     return {
-        fillColor: "rgb(0, 0, 0)",
-        opacity: 0,
-        color: "rgb(0, 256, 0)"
+        fillColor: "#ffb05c",
+        opacity: .5,
+        weight: 2,
+        color: "#ffa142"
     }
 }
 //var request = new Request("./aed.json");
@@ -53,7 +54,12 @@ var shp = new L.Shapefile("http://localhost:5500/combatzone_interactive/aed_shp.
 })
 shp.addTo(map);
 
+var washington_st = L.marker([42.35183320351005, -71.06281299734245]).addTo(map)
+var pilgrim_theater = L.marker([42.35202919787045, -71.06276886451212]).addTo(map)
+var twooclock = L.marker([42.3518885390469, -71.06267170677561]).addTo(map)
 
+washington_st
+    .bindPopup("<b>Washington St.</b><br>19whatever");
 
 
 
